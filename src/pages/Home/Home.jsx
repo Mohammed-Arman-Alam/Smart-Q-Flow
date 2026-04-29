@@ -3,7 +3,6 @@ import { terminalRoles } from '../../data/terminalRoles';
 import { Link } from 'react-router';
 
 const Home = () => {
-    console.log(terminalRoles)
     return (
         <div className='pt-10 h-full py-8'>
             <h1 className='text-center text-4xl font-bold'>Smart Q Flow</h1>
@@ -15,7 +14,7 @@ const Home = () => {
                          const Icon = terminalRole.icon;
                         return(
                             <Link to={terminalRole.route}>
-                                <div key={terminalRole.id} className='bg-white p-7 rounded-2xl hover:scale-105 border-2 border-transparent hover:border-[#006341] shadow'>
+                                <div key={terminalRole.id} className='bg-white p-7 rounded-2xl hover:scale-105 border-2 border-transparent hover:border-[#006341] shadow lg:h-42'>
                                 <Icon size={30}/>
                                 <h2 className='text-xl font-semibold py-2'>{terminalRole.title}</h2>
                                 <p className='text-sm text-[#00634190]'>{terminalRole.description}</p>
