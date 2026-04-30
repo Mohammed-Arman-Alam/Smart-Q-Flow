@@ -8,7 +8,6 @@ const generateTicketNumber = () => {
 };
 
 export default function PatientRegistration() {
-    const {} = useForm();
     const {
       register,
       handleSubmit,
@@ -16,7 +15,7 @@ export default function PatientRegistration() {
       reset,
     } = useForm();
 
-  const onSubmit = (data) => {
+  const handleAppointment = (data) => {
     const ticketNumber = generateTicketNumber();
 
     const fullData = {
@@ -24,7 +23,7 @@ export default function PatientRegistration() {
       ticketNumber,
       time: new Date().toLocaleString(),
     };
-
+    console.log(fullData);
     Swal.fire({
       title: "🎫 Registration Successful",
       html: `
@@ -49,7 +48,6 @@ export default function PatientRegistration() {
         printTicket(fullData);
       }
     });
-
     reset();
   };
 
@@ -86,7 +84,7 @@ export default function PatientRegistration() {
             Patient Registration
           </h1>
 
-          <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-5">
+          <form onSubmit={handleSubmit(handleAppointment)} className="mt-6 space-y-5">
 
             <div>
               <label>Patient Name *</label>
@@ -148,7 +146,7 @@ export default function PatientRegistration() {
 
             <button
               type="submit"
-              className="w-full text-xl py-3 bg-[#006341] text-white py-2 rounded hover:bg-green-700 hover:scale-105">
+              className="w-full text-xl bg-[#006341] text-white py-2 rounded hover:bg-green-700 hover:scale-105">
               Register & Print Ticket
             </button>
           </form>
