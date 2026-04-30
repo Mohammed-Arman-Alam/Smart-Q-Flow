@@ -23,7 +23,6 @@ export default function PatientRegistration() {
       ticketNumber,
       time: new Date().toLocaleString(),
     };
-    console.log(fullData);
     Swal.fire({
       title: "🎫 Registration Successful",
       html: `
@@ -138,6 +137,11 @@ export default function PatientRegistration() {
                 <option>Neurology</option>
                 <option>Orthopedic</option>
                 <option>General</option>
+                <option>Medicine</option>
+                <option>Surgery</option>
+                <option>Gynecology </option>
+                <option>Pediatrics</option>
+                <option>Dermatology</option>
               </select>
               {errors.department && (
                 <p className="text-red-500">{errors.department.message}</p>
