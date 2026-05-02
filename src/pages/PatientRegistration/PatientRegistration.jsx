@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm} from "react-hook-form";
 import Swal from 'sweetalert2';
+import useAxios from "../../hooks/useAxios";
 
 const generateTicketNumber = () => {
   const random = Math.floor(1000 + Math.random() * 9000);
@@ -8,6 +9,7 @@ const generateTicketNumber = () => {
 };
 
 export default function PatientRegistration() {
+    const Axios = useAxios();
     const {
       register,
       handleSubmit,
@@ -23,31 +25,44 @@ export default function PatientRegistration() {
       ticketNumber,
       time: new Date().toLocaleString(),
     };
-    Swal.fire({
-      title: "🎫 Registration Successful",
-      html: `
-        <div style="text-align:left">
-          <p><strong>Ticket No:</strong> ${fullData.ticketNumber}</p>
-          <p><strong>Name:</strong> ${fullData.name}</p>
-          <p><strong>Age:</strong> ${fullData.age}</p>
-          <p><strong>Gender:</strong> ${fullData.gender}</p>
-          <p><strong>Phone:</strong> ${fullData.phone || "N/A"}</p>
-          <p><strong>Department:</strong> ${fullData.department}</p>
-          <p><strong>Time:</strong> ${fullData.time}</p>
-        </div>
-      `,
-      icon: "success",
-      confirmButtonText: "Print Ticket 🖨️",
-      confirmButtonColor: "#006341",
-      showCancelButton: true,
-      cancelButtonText: "Close",
-      cancelButtonColor: "#990000",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        printTicket(fullData);
-      }
-    });
-    reset();
+    Axios.post('/appointment', fullData)
+    .then(res=>{
+        Swal.fire({
+            title: "🎫 Registration Successful",
+            html: `
+              <div style="text-align:left">
+                <p><strong>Ticket No:</strong> ${fullData.ticketNumber}</p>
+                <p><strong>Name:</strong> ${fullData.name}</p>
+                <p><strong>Age:</strong> ${fullData.age}</p>
+                <p><strong>Gender:</strong> ${fullData.gender}</p>
+                <p><strong>Phone:</strong> ${fullData.phone || "N/A"}</p>
+                <p><strong>Department:</strong> ${fullData.department}</p>
+                <p><strong>Time:</strong> ${fullData.time}</p>
+              </div>
+            `,
+            icon: "success",
+            confirmButtonText: "Print Ticket 🖨️",
+            confirmButtonColor: "#006341",
+            showCancelButton: true,
+            cancelButtonText: "Close",
+            cancelButtonColor: "#990000",
+        }).then((result) => {
+        if (result.isConfirmed) {
+            printTicket(fullData);
+        }
+        });
+        reset();
+    }
+    )
+    .catch(error=>{
+        Swal.fire({
+          icon: "error",
+          title: "Sorry",
+          text: "Appointment unsuccessful, please try again.",
+        });
+    })
+    
+    
   };
 
   const printTicket = (data) => {

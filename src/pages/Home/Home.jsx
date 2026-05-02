@@ -13,8 +13,8 @@ const Home = () => {
                     terminalRoles.map(terminalRole=>{
                          const Icon = terminalRole.icon;
                         return(
-                            <Link to={terminalRole.route}>
-                                <div key={terminalRole.id} className='bg-white p-7 rounded-2xl hover:scale-105 border-2 border-transparent hover:border-[#006341] shadow lg:h-42'>
+                            <Link key={terminalRole.id} to={terminalRole.route}>
+                                <div  className='bg-white p-7 rounded-2xl hover:scale-105 border-2 border-transparent hover:border-[#006341] shadow lg:h-42'>
                                 <Icon size={30}/>
                                 <h2 className='text-xl font-semibold py-2'>{terminalRole.title}</h2>
                                 <p className='text-sm text-[#00634190]'>{terminalRole.description}</p>
