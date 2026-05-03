@@ -24,6 +24,7 @@ export default function PatientRegistration() {
       ...data,
       ticketNumber,
       time: new Date().toLocaleString(),
+      status: 'pending'
     };
     Axios.post('/appointment', fullData)
     .then(res=>{

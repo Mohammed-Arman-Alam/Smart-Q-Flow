@@ -3,6 +3,7 @@ import Home from "../pages/Home/Home";
 import MainLayout from "../layouts/MainLayout";
 import PatientRegistration from "../pages/PatientRegistration/PatientRegistration";
 import CentralDesk from "../pages/CentralDesk/CentralDesk";
+import PatientStatus from "../pages/PatientStatus/PatientStatus";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
             {
                 path:'/central-desk',
                 Component: CentralDesk,
+            },
+            {
+                path:'/trial',
+                Component: PatientStatus,
             }
         ]
     }
