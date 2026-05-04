@@ -12,7 +12,7 @@ const Navbar = () => {
                 <a href="/" className="text-2xl font-bold tracking-tight text-white hover:scale-105">Smart Q Flow</a>
                 <div className="flex items-center gap-4 text-md font font-semibold">
                     <Link><button className='border border-black p-1 px-2 rounded-md bg-white hover:text-[#006341] hover:scale-110'>Login</button></Link>
-                    <Link><button className='border border-black p-1 px-2 rounded-md bg-white hover:text-[#006341] hover:scale-110'>Register</button></Link>
+                    <Link to='/register-user'><button className='border border-black p-1 px-2 rounded-md bg-white hover:text-[#006341] hover:scale-110'>Register</button></Link>
                 </div>
             </div>
         </div>

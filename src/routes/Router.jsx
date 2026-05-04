@@ -4,6 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import PatientRegistration from "../pages/PatientRegistration/PatientRegistration";
 import CentralDesk from "../pages/CentralDesk/CentralDesk";
 import PatientStatus from "../pages/PatientStatus/PatientStatus";
+import Register from "../pages/Register/Register";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
             {
                 path:'/trial',
                 Component: PatientStatus,
+            },
+            {
+                path: '/register-user',
+                Component: Register,
             }
         ]
     }
