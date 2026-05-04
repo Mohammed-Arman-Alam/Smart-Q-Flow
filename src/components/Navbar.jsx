@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from '../context/AuthProvider';
+
 
 const Navbar = () => {
+    const {user} = use(AuthContext);
+
     return (
         <div className="shadow bg-[#006341]">
             <div className="container mx-auto px-4 h-16 flex items-center justify-between sm:w-11/12 ">

@@ -43,7 +43,9 @@ const PatientStatus= ()=> {
           Search
         </button>
         </div>
-        <div className="my-8 ">
+        {
+            appointmentId &&
+            <div className="my-8 ">
           <ol className="flex items-center w-full">
             {steps.map((step, index) => {
               const isCompleted = index < currentStep;
@@ -90,6 +92,8 @@ const PatientStatus= ()=> {
             })}
           </ol>
         </div>
+        }
+        
     </div>
   );
 }
