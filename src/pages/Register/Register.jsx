@@ -12,19 +12,9 @@ const Register = () => {
         const formData = new FormData(e.target);
         const { email, password, name, url } = Object.fromEntries(formData.entries());
 
-        // const validPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
-
-        // if (!validPass.test(password)) {
-        //     setErrorMessage("Password must be 8+ chars, include uppercase, lowercase, and special character.");
-        //     return;
-        // }
-
+        
         registerUser(email, password)
             .then(async () => {
-                // await updateUser({
-                //     displayName: name,
-                //     photoURL: url
-                // });
 
                 Swal.fire({
                     title: "Registration Successful!",

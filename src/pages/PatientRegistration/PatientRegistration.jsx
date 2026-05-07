@@ -155,7 +155,7 @@ export default function PatientRegistration() {
                 <option>General</option>
                 <option>Medicine</option>
                 <option>Surgery</option>
-                <option>Gynecology </option>
+                <option>Gynaecology </option>
                 <option>Pediatrics</option>
                 <option>Dermatology</option>
               </select>

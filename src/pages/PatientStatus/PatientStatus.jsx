@@ -3,9 +3,9 @@ import useAxios from "../../hooks/useAxios";
 import { CheckCircle, Circle } from "lucide-react";
 
 const steps = [
-  { label: "Register", key: "pending" },
+  { label: "waiting", key: "waiting" },
+  { label: "Assigned", key: "paid" },
   { label: "Waiting", key: "assigned" },
-  { label: "Called", key: "waiting" },
   { label: "In Consult", key: "in-progress" },
   { label: "Done", key: "completed" },
 ];
@@ -17,7 +17,6 @@ const PatientStatus= ()=> {
 
     const handleSearch = async () => {
       const res = await Axios.get(`/appointment/${appointmentId}`);
-      console.log(res.data);
       setStatus(res.data.status);
     };
 
